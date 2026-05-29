@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Phuong Dong Le | Applied Mathematics</title>
+  <title>Tan Phuong Dong Le | Applied Mathematics</title>
 
-  <meta name="description" content="Personal website of Phuong Dong Le, PhD in Applied Mathematics from the University of Waterloo. Research in scientific machine learning, numerical PDEs, kernel methods, graph networks, and inverse problems.">
+  <meta name="description" content="Personal website of Tan Phuong Dong Le, PhD in Applied Mathematics from the University of Waterloo. Research in scientific machine learning, numerical PDEs, kernel methods, graph networks, and inverse problems.">
 
   <style>
     :root {
@@ -21,6 +21,10 @@
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -79,7 +83,7 @@
       max-width: 1100px;
       margin: auto;
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: 1.25fr 0.85fr;
       gap: 40px;
       align-items: center;
     }
@@ -124,17 +128,51 @@
       border: 1px solid rgba(255,255,255,0.7);
     }
 
+    .button:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+
     .hero-card {
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 18px;
       padding: 24px;
       backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
     }
 
     .hero-card h3 {
       margin-top: 0;
       color: white;
+      font-size: 1.35rem;
+    }
+
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      margin-bottom: 18px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+      background: white;
+    }
+
+    .info-list {
+      text-align: left;
+      margin-top: 12px;
+    }
+
+    .info-list p {
+      margin: 8px 0;
+      font-size: 0.98rem;
+      color: #e0f2fe;
     }
 
     .tag {
@@ -147,6 +185,10 @@
       margin: 4px;
     }
 
+    .profile-tags {
+      margin-top: 16px;
+    }
+
     main {
       max-width: 1100px;
       margin: auto;
@@ -155,6 +197,7 @@
 
     section {
       margin-bottom: 48px;
+      scroll-margin-top: 90px;
     }
 
     .section-title {
@@ -240,6 +283,10 @@
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding: 60px 20px;
+      }
+
       .hero h1 {
         font-size: 2.4rem;
       }
@@ -249,8 +296,17 @@
         gap: 10px;
       }
 
+      .nav-links {
+        text-align: center;
+      }
+
       .nav-links a {
         margin: 0 8px;
+      }
+
+      .profile-photo {
+        width: 180px;
+        height: 225px;
       }
     }
   </style>
@@ -260,12 +316,13 @@
 
   <nav class="navbar">
     <div class="nav-container">
-      <div class="nav-name">Phuong Dong Le</div>
+      <div class="nav-name">Tan Phuong Dong Le</div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -273,9 +330,11 @@
 
   <header class="hero">
     <div class="hero-container">
+
       <div>
-        <h1>Phuong Dong Le</h1>
+        <h1>Tan Phuong Dong Le</h1>
         <h2>PhD in Applied Mathematics, University of Waterloo</h2>
+
         <p>
           Applied mathematician working at the intersection of scientific machine learning,
           numerical partial differential equations, kernel methods, inverse problems,
@@ -290,15 +349,28 @@
         </div>
       </div>
 
-      <div class="hero-card">
-        <h3>Research Focus</h3>
-        <span class="tag">Scientific ML</span>
-        <span class="tag">Numerical PDEs</span>
-        <span class="tag">RBF Networks</span>
-        <span class="tag">Kernel Methods</span>
-        <span class="tag">Inverse Problems</span>
-        <span class="tag">Graph Learning</span>
+      <div class="hero-card profile-card">
+        <img src="assets/profile.jpg" alt="Tan Phuong Dong Le" class="profile-photo">
+
+        <h3>General Information</h3>
+
+        <div class="info-list">
+          <p><strong>First name:</strong> Tan Phuong Dong</p>
+          <p><strong>Last name:</strong> Le</p>
+          <p><strong>Degree:</strong> Doctor of Philosophy in Applied Mathematics</p>
+          <p><strong>Institution:</strong> University of Waterloo</p>
+          <p><strong>Supervisors:</strong> Dr. Hans De Sterck and Dr. Giang Tran</p>
+        </div>
+
+        <div class="profile-tags">
+          <span class="tag">Scientific ML</span>
+          <span class="tag">Numerical PDEs</span>
+          <span class="tag">RBF Networks</span>
+          <span class="tag">Kernel Methods</span>
+          <span class="tag">Graph Learning</span>
+        </div>
       </div>
+
     </div>
   </header>
 
@@ -306,6 +378,7 @@
 
     <section id="about">
       <h2 class="section-title">About</h2>
+
       <p class="section-subtitle">
         I develop computational methods that combine applied mathematics, scientific computing,
         and machine learning for solving problems arising from PDEs, variational inequalities,
@@ -314,20 +387,23 @@
 
       <div class="card">
         <p>
-          I received my PhD in Applied Mathematics from the University of Waterloo.
-          My doctoral research focuses on mesh-free variational methods using radial basis function networks
-          for elliptic partial differential equations, obstacle problems, and free-boundary value problems.
+          I am Tan Phuong Dong Le, a Doctor of Philosophy in Applied Mathematics from the University of Waterloo.
+          My doctoral research was supervised by Dr. Hans De Sterck and Dr. Giang Tran, and focuses on mesh-free
+          variational methods using radial basis function networks for elliptic partial differential equations,
+          obstacle problems, and free-boundary value problems.
         </p>
 
         <p>
           I am broadly interested in scientific machine learning, scalable approximation methods,
-          kernel-based numerical methods, Bayesian inverse problems, and graph representation learning.
+          kernel-based numerical methods, Bayesian inverse problems, graph representation learning,
+          and computational mathematics.
         </p>
       </div>
     </section>
 
     <section id="research">
       <h2 class="section-title">Research Interests</h2>
+
       <p class="section-subtitle">
         My research connects rigorous applied mathematics with modern computational and machine-learning methods.
       </p>
@@ -385,8 +461,10 @@
 
     <section id="publications">
       <h2 class="section-title">Selected Publications</h2>
+
       <p class="section-subtitle">
-        Selected thesis-related work and publications in applied mathematics, computational methods, and data analysis.
+        Selected thesis-related work and publications in applied mathematics, computational methods,
+        graph-based modeling, and data analysis.
       </p>
 
       <div class="card">
@@ -395,7 +473,7 @@
             Mesh-Free Variational Methods for Free-Boundary Problems via Radial Basis Function Networks
           </div>
           <div class="muted">
-            Phuong Dong Le, Hans De Sterck, Giang Tran. PhD thesis-related manuscript.
+            Tan Phuong Dong Le, Hans De Sterck, Giang Tran. PhD thesis-related manuscript.
           </div>
         </div>
 
@@ -404,7 +482,7 @@
             Random Feature Solvers for High-Dimensional Variational Problems
           </div>
           <div class="muted">
-            Phuong Dong Le, Hans De Sterck, Giang Tran. Manuscript in preparation.
+            Tan Phuong Dong Le, Hans De Sterck, Giang Tran. Manuscript in preparation.
           </div>
         </div>
 
@@ -413,7 +491,7 @@
             Chaos Geometry and Persistent Homology for DNA
           </div>
           <div class="muted">
-            Phuong Dong Le. IEEE CSCI, 2022.
+            Tan Phuong Dong Le. IEEE CSCI, 2022.
           </div>
         </div>
 
@@ -422,7 +500,7 @@
             Graph-Theoretical Approach to DNA Sequences
           </div>
           <div class="muted">
-            Phuong Dong Le. Communications in Statistics, 2022.
+            Tan Phuong Dong Le. Communications in Statistics, 2022.
           </div>
         </div>
 
@@ -431,7 +509,7 @@
             Adaptive Geometry for Signed Networks
           </div>
           <div class="muted">
-            Phuong Dong Le. Science and Information Conference, Springer, 2022.
+            Tan Phuong Dong Le. Science and Information Conference, Springer, 2022.
           </div>
         </div>
       </div>
@@ -439,8 +517,10 @@
 
     <section id="projects">
       <h2 class="section-title">Projects and Repositories</h2>
+
       <p class="section-subtitle">
-        Public code and research software related to numerical PDEs, RBF networks, and scientific machine learning.
+        Public code and research software related to numerical PDEs, RBF networks,
+        variational methods, and scientific machine learning.
       </p>
 
       <div class="grid-2">
@@ -450,12 +530,15 @@
             A NumPy-based toolkit for mesh-free approximation of partial differential equations
             using radial basis function networks, weak constraints, and truncated SVD stabilization.
           </p>
+
           <p>
             <span class="pill">Python</span>
             <span class="pill">NumPy</span>
             <span class="pill">RBF</span>
             <span class="pill">PDEs</span>
+            <span class="pill">Variational Methods</span>
           </p>
+
           <a href="https://github.com/phuongdongle/Variational-Formulation-RBFNets" target="_blank">
             View Repository →
           </a>
@@ -467,11 +550,14 @@
             Notes and future implementations for graph neural networks, graph embeddings,
             spectral graph methods, and scientific graph learning.
           </p>
+
           <p>
             <span class="pill">GNNs</span>
             <span class="pill">Spectral Methods</span>
+            <span class="pill">Graph Learning</span>
             <span class="pill">Scientific Learning</span>
           </p>
+
           <a href="https://github.com/phuongdongle?tab=repositories" target="_blank">
             View GitHub →
           </a>
@@ -526,7 +612,7 @@
   </main>
 
   <footer>
-    <p>© 2026 Phuong Dong Le. Built with GitHub Pages.</p>
+    <p>© 2026 Tan Phuong Dong Le. Built with GitHub Pages.</p>
   </footer>
 
 </body>
