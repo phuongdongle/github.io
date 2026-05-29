@@ -375,6 +375,35 @@
       margin: auto;
     }
 
+    .free-surface-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .free-surface-panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .free-surface-panel img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .free-surface-panel-title {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
     .caption {
       color: var(--gray);
       font-size: 0.84rem;
@@ -414,7 +443,8 @@
     @media (max-width: 900px) {
       .hero-container,
       .grid-2,
-      .workflow {
+      .workflow,
+      .free-surface-grid {
         grid-template-columns: 1fr;
       }
 
@@ -644,6 +674,57 @@
           Left: exact solution \(u_{\mathrm{exact}}(x_1,x_2,t)\).
           Middle: predicted solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).
           Right: pointwise error \(|u_{\mathrm{KAN}}-u_{\mathrm{exact}}|\).
+        </p>
+      </div>
+
+      <br>
+
+      <div class="project-subtitle">
+        Learned Moving Free-Boundary Surface
+      </div>
+
+      <p class="small-subtitle">
+        The panels below compare the exact free surface \(s(x_2,t)\), the learned KAN-predicted
+        free surface \(\hat{s}(x_2,t)\), and the logarithmic absolute error
+        \(\log_{10}(|s_{\mathrm{KAN}}-s_{\mathrm{exact}}|)\).
+      </p>
+
+      <div class="card figure-card">
+        <div class="free-surface-grid">
+
+          <div class="free-surface-panel">
+            <div class="free-surface-panel-title">
+              Exact Free Surface \(s(x_2,t)\)
+            </div>
+            <img
+              src="assets/movingfree_surface_exact.png"
+              alt="Exact moving free-boundary surface">
+          </div>
+
+          <div class="free-surface-panel">
+            <div class="free-surface-panel-title">
+              Predicted Free Surface \(\hat{s}(x_2,t)\)
+            </div>
+            <img
+              src="assets/movingfree_surface_predicted.png"
+              alt="Predicted moving free-boundary surface">
+          </div>
+
+          <div class="free-surface-panel">
+            <div class="free-surface-panel-title">
+              Log Absolute Error
+            </div>
+            <img
+              src="assets/movingfree_surface_log_absolute_error.png"
+              alt="Logarithmic absolute error of the moving free-boundary surface">
+          </div>
+
+        </div>
+
+        <p class="caption">
+          Left: exact moving free surface. Middle: KAN-predicted moving free surface.
+          Right: logarithmic absolute error
+          \(\log_{10}(|s_{\mathrm{KAN}}-s_{\mathrm{exact}}|)\).
         </p>
       </div>
     </section>
