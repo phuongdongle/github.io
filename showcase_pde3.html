@@ -8,6 +8,20 @@
 
   <meta name="description" content="Project showcase by Tan Phuong Dong Le on machine learning and deep learning methods for linear elliptic PDEs, free-boundary value problems, and time-dependent Stefan problems.">
 
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
   <style>
     :root {
       --dark: #0f172a;
@@ -92,7 +106,7 @@
     }
 
     .hero h1 {
-      font-size: 2.85rem;
+      font-size: 2.8rem;
       margin: 0 0 14px;
       line-height: 1.12;
     }
@@ -183,20 +197,40 @@
     }
 
     section {
-      margin-bottom: 48px;
+      margin-bottom: 52px;
       scroll-margin-top: 90px;
     }
 
     .section-title {
       font-size: 2rem;
       color: var(--dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.25;
     }
 
     .section-subtitle {
       color: var(--gray);
+      margin-top: 0;
       margin-bottom: 24px;
       max-width: 840px;
+      font-size: 1.02rem;
+      line-height: 1.65;
+    }
+
+    .project-subtitle {
+      font-size: 1.08rem;
+      color: var(--blue);
+      font-weight: 700;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    .small-subtitle {
+      font-size: 0.98rem;
+      color: var(--gray);
+      max-width: 840px;
+      margin-top: 0;
+      margin-bottom: 22px;
     }
 
     .card {
@@ -226,16 +260,13 @@
       background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 20px;
+      padding: 18px;
       overflow-x: auto;
       margin: 18px 0;
     }
 
-    .math-line {
-      text-align: center;
-      font-size: 1.15rem;
-      margin: 14px 0;
-      color: var(--dark);
+    .math-box mjx-container {
+      font-size: 112% !important;
     }
 
     .workflow {
@@ -412,7 +443,7 @@
       <div class="nav-name">Tan Phuong Dong Le</div>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="#overview">Project 1</a>
+        <a href="#project1">Project 1</a>
         <a href="#workflow">Workflow</a>
         <a href="#animation">Animation</a>
         <a href="#details">Details</a>
@@ -457,57 +488,67 @@
 
   <main>
 
-    <section id="overview">
+    <section id="project1">
       <h2 class="section-title">1. KAN Solver for Free-Boundary Value Problems and Time-Dependent Stefan Problems</h2>
 
-      <p class="section-subtitle">
-        Project overview: this project studies a KAN-based physics-informed neural solver for a moving-boundary
-        parabolic PDE. The numerical experiment learns the time-dependent solution field and the moving free
-        surface simultaneously.
+      <div class="project-subtitle">Project Overview</div>
+
+      <p class="small-subtitle">
+        This project studies a KAN-based physics-informed neural solver for a moving-boundary
+        parabolic PDE. The numerical experiment learns both the time-dependent solution field
+        and the moving free surface simultaneously.
       </p>
 
       <div class="card">
         <p>
-          The main example is the two-dimensional one-phase Stefan problem. The goal is to learn
-          the time-dependent solution
+          The main example is the two-dimensional one-phase Stefan problem. The goal is to approximate
+          the time-dependent solution \(u(x_1,x_2,t)\) and the moving free boundary \(s(x_2,t)\).
         </p>
 
         <div class="math-box">
-          <div class="math-line">
-            <strong>u(x<sub>1</sub>, x<sub>2</sub>, t)</strong>
-          </div>
+          \[
+          u = u(x_1,x_2,t), \qquad s = s(x_2,t).
+          \]
         </div>
 
         <p>
-          together with the moving free boundary
+          The full computational space-time domain is
         </p>
 
         <div class="math-box">
-          <div class="math-line">
-            <strong>s(x<sub>2</sub>, t)</strong>.
-          </div>
+          \[
+          (x_1,x_2,t) \in [0,2.25]\times[0,1]\times[0,1].
+          \]
         </div>
 
         <p>
-          The computational domain is
+          The physical moving domain is determined by the free surface:
         </p>
 
         <div class="math-box">
-          <div class="math-line">
-            (x<sub>1</sub>, x<sub>2</sub>, t) ∈ [0, 2.25] × [0, 1] × [0, 1],
-          </div>
+          \[
+          \Omega(t)
+          =
+          \left\{
+          (x_1,x_2): 0 < x_1 < s(x_2,t),\; 0 < x_2 < 1
+          \right\},
+          \qquad 0 \leq t \leq 1.
+          \]
         </div>
 
         <p>
-          with the moving physical domain defined by
+          A representative heat-equation residual for the learned solution \(u_{\mathrm{KAN}}\) is
         </p>
 
         <div class="math-box">
-          <div class="math-line">
-            0 &lt; x<sub>1</sub> &lt; s(x<sub>2</sub>, t), &nbsp;
-            0 &lt; x<sub>2</sub> &lt; 1, &nbsp;
-            0 ≤ t ≤ 1.
-          </div>
+          \[
+          \mathcal{R}_{\mathrm{PDE}}(x_1,x_2,t)
+          =
+          \partial_t u_{\mathrm{KAN}}
+          -
+          \Delta u_{\mathrm{KAN}},
+          \qquad (x_1,x_2)\in\Omega(t).
+          \]
         </div>
       </div>
     </section>
@@ -515,9 +556,11 @@
     <section id="workflow">
       <h2 class="section-title">2. Methodological Workflow</h2>
 
-      <p class="section-subtitle">
-        The project pipeline can be summarized as a four-stage scientific machine-learning workflow:
-        problem formulation, model construction, physics-informed training, and numerical approximation.
+      <div class="project-subtitle">Problem Formulation → Model → Training → Approximation</div>
+
+      <p class="small-subtitle">
+        The project pipeline is summarized as a four-stage scientific machine-learning workflow.
+        Each stage corresponds to a mathematical or computational component of the Stefan solver.
       </p>
 
       <div class="workflow">
@@ -525,8 +568,8 @@
           <div class="workflow-icon">1</div>
           <h3>Problem Formulation</h3>
           <p>
-            Define the Stefan problem, moving domain, heat equation, boundary conditions,
-            interface condition, and Stefan condition.
+            Define \(\Omega(t)\), the heat equation, boundary data, interface condition,
+            and Stefan free-boundary condition.
           </p>
         </div>
 
@@ -534,8 +577,8 @@
           <div class="workflow-icon">2</div>
           <h3>Model</h3>
           <p>
-            Use a KAN-based neural representation for the solution field and a separate
-            approximation for the free surface.
+            Use \(u_{\mathrm{KAN}}(x_1,x_2,t)\) for the solution and
+            \(\hat{s}(x_2,t)\) for the learned interface.
           </p>
         </div>
 
@@ -543,8 +586,8 @@
           <div class="workflow-icon">3</div>
           <h3>Training</h3>
           <p>
-            Minimize a composite physics-informed loss including PDE residual, initial,
-            boundary, interface, and Stefan-condition losses.
+            Minimize a composite loss combining PDE residuals, initial data,
+            boundary data, interface loss, and Stefan loss.
           </p>
         </div>
 
@@ -552,8 +595,8 @@
           <div class="workflow-icon">4</div>
           <h3>Approximation</h3>
           <p>
-            Evaluate the learned solution, compute relative errors, and compare the predicted
-            free boundary against the exact surface.
+            Evaluate \(u_{\mathrm{KAN}}\), compute error metrics, and compare
+            \(\hat{s}\) against the exact free surface.
           </p>
         </div>
       </div>
@@ -562,7 +605,9 @@
     <section id="animation">
       <h2 class="section-title">3. Time-Dependent KAN Prediction and Error</h2>
 
-      <p class="section-subtitle">
+      <div class="project-subtitle">Exact Solution, Predicted Solution, and Pointwise Error</div>
+
+      <p class="small-subtitle">
         The animation below shows the learned KAN solution evolving from initial time to final time,
         together with the pointwise absolute error.
       </p>
@@ -575,8 +620,9 @@
         </div>
 
         <p class="caption">
-          Left: exact solution. Middle: KAN-predicted solution. Right: pointwise absolute error
-          over the time-dependent physical domain.
+          Left: exact solution \(u_{\mathrm{exact}}(x_1,x_2,t)\).
+          Middle: KAN-predicted solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).
+          Right: pointwise error \(|u_{\mathrm{KAN}}-u_{\mathrm{exact}}|\).
         </p>
       </div>
     </section>
@@ -584,31 +630,57 @@
     <section id="details">
       <h2 class="section-title">4. Training and Approximation Details</h2>
 
-      <p class="section-subtitle">
-        The solver is trained by minimizing residual losses associated with the governing PDE
-        and the moving-boundary constraints.
+      <div class="project-subtitle">Physics-Informed Losses and Numerical Outputs</div>
+
+      <p class="small-subtitle">
+        The solver is trained by minimizing residual losses associated with the governing PDE,
+        boundary and initial conditions, and moving-boundary constraints.
       </p>
+
+      <div class="card">
+        <p>
+          A typical composite physics-informed loss has the form
+        </p>
+
+        <div class="math-box">
+          \[
+          \mathcal{L}
+          =
+          \lambda_{\mathrm{PDE}}\mathcal{L}_{\mathrm{PDE}}
+          +
+          \lambda_{\mathrm{IC}}\mathcal{L}_{\mathrm{IC}}
+          +
+          \lambda_{\mathrm{BC}}\mathcal{L}_{\mathrm{BC}}
+          +
+          \lambda_{\Gamma}\mathcal{L}_{\Gamma}
+          +
+          \lambda_{\mathrm{Stefan}}\mathcal{L}_{\mathrm{Stefan}}.
+          \]
+        </div>
+      </div>
+
+      <br>
 
       <div class="grid-2">
         <div class="card">
           <h3>Physics-Informed Loss Components</h3>
           <ul class="result-list">
-            <li>Heat-equation residual in the moving physical domain.</li>
-            <li>Initial-condition loss at the initial time.</li>
-            <li>Boundary-condition losses on fixed boundaries.</li>
-            <li>Interface condition on the moving free boundary.</li>
-            <li>Stefan free-boundary condition controlling interface evolution.</li>
+            <li>PDE residual loss \( \mathcal{L}_{\mathrm{PDE}} \) in the moving physical domain.</li>
+            <li>Initial-condition loss \( \mathcal{L}_{\mathrm{IC}} \) at \(t=0\).</li>
+            <li>Boundary-condition loss \( \mathcal{L}_{\mathrm{BC}} \) on fixed boundaries.</li>
+            <li>Interface loss \( \mathcal{L}_{\Gamma} \) on the moving free boundary.</li>
+            <li>Stefan-condition loss \( \mathcal{L}_{\mathrm{Stefan}} \) controlling interface evolution.</li>
           </ul>
         </div>
 
         <div class="card">
           <h3>Numerical Outputs</h3>
           <ul class="result-list">
-            <li>Approximate solution surface <strong>u<sub>KAN</sub>(x<sub>1</sub>, x<sub>2</sub>, t)</strong>.</li>
-            <li>Pointwise absolute error against the exact solution.</li>
+            <li>Approximate solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).</li>
+            <li>Pointwise absolute error \( |u_{\mathrm{KAN}}-u_{\mathrm{exact}}| \).</li>
             <li>Training logs for total and component losses.</li>
-            <li>Relative L<sup>2</sup> and L<sup>∞</sup> errors over training.</li>
-            <li>Predicted free surface compared with the exact interface.</li>
+            <li>Relative errors \( \|u_{\mathrm{exact}}-u_{\mathrm{KAN}}\|_2/\|u_{\mathrm{exact}}\|_2 \) and \(L^\infty\) error.</li>
+            <li>Predicted free surface \(\hat{s}(x_2,t)\) compared with the exact interface \(s(x_2,t)\).</li>
           </ul>
         </div>
       </div>
@@ -616,6 +688,13 @@
 
     <section id="summary">
       <h2 class="section-title">5. Summary</h2>
+
+      <div class="project-subtitle">Scientific Machine Learning for PDEs and Free Boundaries</div>
+
+      <p class="small-subtitle">
+        This section summarizes the main computational idea and the role of KAN-based approximation
+        in solving moving-boundary PDEs.
+      </p>
 
       <div class="card">
         <p>
