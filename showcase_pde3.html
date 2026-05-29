@@ -417,6 +417,18 @@
       display: block;
     }
 
+    .centered-medium-figure {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .centered-medium-figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
     .caption {
       color: var(--gray);
       font-size: 0.84rem;
@@ -492,6 +504,10 @@
 
       .nav-links a {
         margin: 0 8px;
+      }
+
+      .centered-medium-figure {
+        max-width: 100%;
       }
     }
   </style>
@@ -784,9 +800,12 @@
 
       <div class="card figure-card wide-figure">
         <div class="image-panel-title">Obstacle Function \(\psi(x_1,x_2)\)</div>
-        <img
-          src="assets/pLaplacianObstacle/obstacle_3d.png"
-          alt="Obstacle function for the p-Laplacian obstacle problem">
+
+        <div class="centered-medium-figure">
+          <img
+            src="assets/pLaplacianObstacle/obstacle_3d.png"
+            alt="Obstacle function for the p-Laplacian obstacle problem">
+        </div>
       </div>
 
       <div class="card figure-card wide-figure">
