@@ -112,7 +112,9 @@
     }
 
     .button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 11px 16px;
       margin-right: 10px;
       margin-bottom: 10px;
@@ -131,6 +133,31 @@
     .button:hover {
       text-decoration: none;
       opacity: 0.9;
+    }
+
+    .button img {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+    }
+
+    .mail-icon {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .cv-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 18px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.18);
+      color: white;
+      letter-spacing: 0.5px;
     }
 
     .hero-card {
@@ -280,6 +307,27 @@
       color: var(--gray);
     }
 
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .contact-icon {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .contact-mail-icon {
+      color: var(--blue);
+      font-size: 18px;
+      line-height: 1;
+    }
+
     footer {
       background: var(--dark);
       color: #cbd5e1;
@@ -354,13 +402,40 @@
         </p>
 
         <div class="hero-buttons">
-          <a class="button" href="https://github.com/phuongdongle" target="_blank">GitHub</a>
-          <a class="button secondary" href="https://github.com/phuongdongle?tab=repositories" target="_blank">Repositories</a>
-          <a class="button secondary" href="cv.pdf" target="_blank">CV</a>
-          <a class="button secondary" href="https://scholar.google.ca/citations?user=g624xMkAAAAJ&hl=en" target="_blank">Google Scholar</a>
-          <a class="button secondary" href="https://orcid.org/0000-0003-1886-9428" target="_blank">ORCID</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/tan-phuong-dong-le-83a840128/" target="_blank">LinkedIn</a>
-          <a class="button secondary" href="mailto:pdle@uwaterloo.ca">Email</a>
+          <a class="button" href="https://github.com/phuongdongle" target="_blank">
+            <img src="https://cdn.simpleicons.org/github/2563eb" alt="GitHub logo">
+            GitHub
+          </a>
+
+          <a class="button secondary" href="https://github.com/phuongdongle?tab=repositories" target="_blank">
+            <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub logo">
+            Repositories
+          </a>
+
+          <a class="button secondary" href="cv.pdf" target="_blank">
+            <span class="cv-icon">CV</span>
+            CV
+          </a>
+
+          <a class="button secondary" href="https://scholar.google.ca/citations?user=g624xMkAAAAJ&hl=en" target="_blank">
+            <img src="https://cdn.simpleicons.org/googlescholar/ffffff" alt="Google Scholar logo">
+            Google Scholar
+          </a>
+
+          <a class="button secondary" href="https://orcid.org/0000-0003-1886-9428" target="_blank">
+            <img src="https://cdn.simpleicons.org/orcid/ffffff" alt="ORCID logo">
+            ORCID
+          </a>
+
+          <a class="button secondary" href="https://www.linkedin.com/in/tan-phuong-dong-le-83a840128/" target="_blank">
+            <img src="https://cdn.simpleicons.org/linkedin/ffffff" alt="LinkedIn logo">
+            LinkedIn
+          </a>
+
+          <a class="button secondary" href="mailto:pdle@uwaterloo.ca">
+            <span class="mail-icon">✉</span>
+            Email
+          </a>
         </div>
       </div>
 
@@ -605,38 +680,44 @@
       <h2 class="section-title">Contact</h2>
 
       <div class="card">
-        <p>
+        <p class="contact-row">
+          <span class="contact-mail-icon">✉</span>
           <strong>Email:</strong>
           <a href="mailto:pdle@uwaterloo.ca">pdle@uwaterloo.ca</a>
         </p>
 
-        <p>
+        <p class="contact-row">
+          <img class="contact-icon" src="https://cdn.simpleicons.org/github/2563eb" alt="GitHub logo">
           <strong>GitHub:</strong>
           <a href="https://github.com/phuongdongle" target="_blank">github.com/phuongdongle</a>
         </p>
 
-        <p>
+        <p class="contact-row">
+          <img class="contact-icon" src="https://cdn.simpleicons.org/github/2563eb" alt="GitHub logo">
           <strong>Repositories:</strong>
           <a href="https://github.com/phuongdongle?tab=repositories" target="_blank">
             github.com/phuongdongle?tab=repositories
           </a>
         </p>
 
-        <p>
+        <p class="contact-row">
+          <img class="contact-icon" src="https://cdn.simpleicons.org/googlescholar/2563eb" alt="Google Scholar logo">
           <strong>Google Scholar:</strong>
           <a href="https://scholar.google.ca/citations?user=g624xMkAAAAJ&hl=en" target="_blank">
             Tan Phuong Dong Le
           </a>
         </p>
 
-        <p>
+        <p class="contact-row">
+          <img class="contact-icon" src="https://cdn.simpleicons.org/orcid/2563eb" alt="ORCID logo">
           <strong>ORCID:</strong>
           <a href="https://orcid.org/0000-0003-1886-9428" target="_blank">
             0000-0003-1886-9428
           </a>
         </p>
 
-        <p>
+        <p class="contact-row">
+          <img class="contact-icon" src="https://cdn.simpleicons.org/linkedin/2563eb" alt="LinkedIn logo">
           <strong>LinkedIn:</strong>
           <a href="https://www.linkedin.com/in/tan-phuong-dong-le-83a840128/" target="_blank">
             linkedin.com/in/tan-phuong-dong-le-83a840128
