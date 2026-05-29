@@ -1,218 +1,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Phuong Dong Le | Applied Mathematics</title>
+
+  <meta name="description" content="Personal website of Phuong Dong Le, PhD in Applied Mathematics from the University of Waterloo. Research in scientific machine learning, numerical PDEs, kernel methods, graph networks, and inverse problems.">
+
   <style>
+    :root {
+      --dark: #0f172a;
+      --blue: #2563eb;
+      --blue-light: #dbeafe;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      line-height: 1.6;
-      background-color: #f7f7f7;
-      color: #222;
-    }
-
-    header {
-      background-color: #111827;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin: 5px 0;
-    }
-
-    nav {
-      margin-top: 25px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      padding: 8px 12px;
-      background-color: #2563eb;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    nav a:hover {
-      background-color: #1d4ed8;
-    }
-
-    main {
-      max-width: 950px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    section {
-      background-color: white;
-      padding: 25px;
-      margin-bottom: 25px;
-      border-radius: 8px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: #111827;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 6px;
-    }
-
-    .publication, .project {
-      margin-bottom: 20px;
-    }
-
-    .publication h3, .project h3 {
-      margin-bottom: 5px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: #1e293b;
+      line-height: 1.65;
     }
 
     a {
-      color: #2563eb;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .nav-links a {
+      margin-left: 18px;
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+      color: white;
+      padding: 90px 24px;
+    }
+
+    .hero-container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin: 0 0 10px;
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin: 0 0 20px;
+      color: #dbeafe;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      max-width: 720px;
+      color: #e0f2fe;
+    }
+
+    .hero-buttons {
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 16px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      background: white;
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 18px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin: 4px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 42px 24px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--gray);
+      margin-bottom: 24px;
+      max-width: 750px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--dark);
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--blue-light);
+      color: #1e40af;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      margin: 4px 4px 4px 0;
+    }
+
+    .publication {
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .publication:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .publication-title {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .muted {
+      color: var(--gray);
     }
 
     footer {
+      background: var(--dark);
+      color: #cbd5e1;
       text-align: center;
-      background-color: #111827;
-      color: white;
-      padding: 20px;
+      padding: 28px 20px;
       margin-top: 40px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-container,
+      .grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        margin: 0 8px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Phuong Dong Le</h1>
-    <p>Doctor of Philosophy in Applied Mathematics</p>
-    <p>University of Waterloo</p>
-    <p>Scientific Machine Learning · Numerical PDEs · Kernel Methods · Graph Networks</p>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-name">Phuong Dong Le</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <nav>
-      <a href="mailto:pdle@uwaterloo.ca">Email</a>
-      <a href="https://github.com/phuongdongle" target="_blank">GitHub</a>
-      <a href="https://github.com/phuongdongle?tab=repositories" target="_blank">Repositories</a>
-      <a href="cv.pdf" target="_blank">CV</a>
-      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
-    </nav>
+  <header class="hero">
+    <div class="hero-container">
+      <div>
+        <h1>Phuong Dong Le</h1>
+        <h2>PhD in Applied Mathematics, University of Waterloo</h2>
+        <p>
+          Applied mathematician working at the intersection of scientific machine learning,
+          numerical partial differential equations, kernel methods, inverse problems,
+          and graph representation learning.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button" href="https://github.com/phuongdongle" target="_blank">GitHub</a>
+          <a class="button secondary" href="https://github.com/phuongdongle?tab=repositories" target="_blank">Repositories</a>
+          <a class="button secondary" href="cv.pdf" target="_blank">CV</a>
+          <a class="button secondary" href="mailto:pdle@uwaterloo.ca">Email</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Research Focus</h3>
+        <span class="tag">Scientific ML</span>
+        <span class="tag">Numerical PDEs</span>
+        <span class="tag">RBF Networks</span>
+        <span class="tag">Kernel Methods</span>
+        <span class="tag">Inverse Problems</span>
+        <span class="tag">Graph Learning</span>
+      </div>
+    </div>
   </header>
 
   <main>
 
     <section id="about">
-      <h2>About</h2>
-      <p>
-        I am a Doctor of Philosophy in Applied Mathematics from the University of Waterloo.
-        My research focuses on scientific machine learning, kernel-based approximation,
-        numerical partial differential equations, variational inequalities, and graph representation learning.
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">
+        I develop computational methods that combine applied mathematics, scientific computing,
+        and machine learning for solving problems arising from PDEs, variational inequalities,
+        free-boundary problems, and data-driven modeling.
       </p>
 
-      <p>
-        My work combines applied mathematics, scientific computing, and machine learning to develop
-        computational methods for partial differential equations, free-boundary problems, inverse problems,
-        and high-dimensional variational problems.
-      </p>
+      <div class="card">
+        <p>
+          I received my PhD in Applied Mathematics from the University of Waterloo.
+          My doctoral research focuses on mesh-free variational methods using radial basis function networks
+          for elliptic partial differential equations, obstacle problems, and free-boundary value problems.
+        </p>
+
+        <p>
+          I am broadly interested in scientific machine learning, scalable approximation methods,
+          kernel-based numerical methods, Bayesian inverse problems, and graph representation learning.
+        </p>
+      </div>
     </section>
 
     <section id="research">
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Scientific Machine Learning</li>
-        <li>Numerical Methods for Partial Differential Equations</li>
-        <li>Radial Basis Function Networks and Kernel Methods</li>
-        <li>Variational Inequalities and Free-Boundary Problems</li>
-        <li>Bayesian Inverse Problems</li>
-        <li>Graph Representation Learning and Graph Neural Networks</li>
-        <li>Topological Data Analysis</li>
-      </ul>
+      <h2 class="section-title">Research Interests</h2>
+      <p class="section-subtitle">
+        My research connects rigorous applied mathematics with modern computational and machine-learning methods.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Scientific Machine Learning</h3>
+          <p>
+            Machine-learning-based approximation methods for scientific computing,
+            variational problems, and high-dimensional PDEs.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Numerical PDEs</h3>
+          <p>
+            Mesh-free and variational methods for elliptic PDEs, obstacle problems,
+            and free-boundary value problems.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kernel Methods</h3>
+          <p>
+            Radial basis function networks, random feature methods, and stabilized solvers
+            for ill-conditioned approximation systems.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Inverse Problems</h3>
+          <p>
+            Optimization and Bayesian approaches for parameter estimation,
+            uncertainty quantification, and scientific data assimilation.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Graph Learning</h3>
+          <p>
+            Graph representation learning, graph neural networks, spectral graph methods,
+            and scientific graph learning.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Topological Data Analysis</h3>
+          <p>
+            Persistent homology and geometric methods for analyzing structured data,
+            networks, and biological sequences.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="publications">
-      <h2>Selected Publications</h2>
+      <h2 class="section-title">Selected Publications</h2>
+      <p class="section-subtitle">
+        Selected thesis-related work and publications in applied mathematics, computational methods, and data analysis.
+      </p>
 
-      <div class="publication">
-        <h3>Mesh-Free Variational Methods for Free-Boundary Problems via Radial Basis Function Networks</h3>
-        <p>
-          Phuong Dong Le, Hans De Sterck, Giang Tran.
-          <br>
-          PhD thesis-related manuscript.
-        </p>
-      </div>
+      <div class="card">
+        <div class="publication">
+          <div class="publication-title">
+            Mesh-Free Variational Methods for Free-Boundary Problems via Radial Basis Function Networks
+          </div>
+          <div class="muted">
+            Phuong Dong Le, Hans De Sterck, Giang Tran. PhD thesis-related manuscript.
+          </div>
+        </div>
 
-      <div class="publication">
-        <h3>Random Feature Solvers for High-Dimensional Variational Problems</h3>
-        <p>
-          Phuong Dong Le, Hans De Sterck, Giang Tran.
-          <br>
-          Manuscript in preparation.
-        </p>
-      </div>
+        <div class="publication">
+          <div class="publication-title">
+            Random Feature Solvers for High-Dimensional Variational Problems
+          </div>
+          <div class="muted">
+            Phuong Dong Le, Hans De Sterck, Giang Tran. Manuscript in preparation.
+          </div>
+        </div>
 
-      <div class="publication">
-        <h3>Chaos Geometry and Persistent Homology for DNA</h3>
-        <p>
-          Phuong Dong Le.
-          <br>
-          IEEE CSCI, 2022.
-        </p>
-      </div>
+        <div class="publication">
+          <div class="publication-title">
+            Chaos Geometry and Persistent Homology for DNA
+          </div>
+          <div class="muted">
+            Phuong Dong Le. IEEE CSCI, 2022.
+          </div>
+        </div>
 
-      <div class="publication">
-        <h3>Graph-Theoretical Approach to DNA Sequences</h3>
-        <p>
-          Phuong Dong Le.
-          <br>
-          Communications in Statistics, 2022.
-        </p>
-      </div>
+        <div class="publication">
+          <div class="publication-title">
+            Graph-Theoretical Approach to DNA Sequences
+          </div>
+          <div class="muted">
+            Phuong Dong Le. Communications in Statistics, 2022.
+          </div>
+        </div>
 
-      <div class="publication">
-        <h3>Adaptive Geometry for Signed Networks</h3>
-        <p>
-          Phuong Dong Le.
-          <br>
-          Science and Information Conference, Springer, 2022.
-        </p>
+        <div class="publication">
+          <div class="publication-title">
+            Adaptive Geometry for Signed Networks
+          </div>
+          <div class="muted">
+            Phuong Dong Le. Science and Information Conference, Springer, 2022.
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects and GitHub Repositories</h2>
+      <h2 class="section-title">Projects and Repositories</h2>
+      <p class="section-subtitle">
+        Public code and research software related to numerical PDEs, RBF networks, and scientific machine learning.
+      </p>
 
-      <div class="project">
-        <h3>Variational Formulation RBF Networks</h3>
-        <p>
-          A NumPy-based toolkit for mesh-free approximation of partial differential equations
-          using radial basis function networks, weak constraints, and truncated SVD stabilization.
-        </p>
-        <a href="https://github.com/phuongdongle/Variational-Formulation-RBFNets" target="_blank">
-          View Repository
-        </a>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Variational Formulation RBF Networks</h3>
+          <p>
+            A NumPy-based toolkit for mesh-free approximation of partial differential equations
+            using radial basis function networks, weak constraints, and truncated SVD stabilization.
+          </p>
+          <p>
+            <span class="pill">Python</span>
+            <span class="pill">NumPy</span>
+            <span class="pill">RBF</span>
+            <span class="pill">PDEs</span>
+          </p>
+          <a href="https://github.com/phuongdongle/Variational-Formulation-RBFNets" target="_blank">
+            View Repository →
+          </a>
+        </div>
+
+        <div class="card">
+          <h3>Graph Representation Learning</h3>
+          <p>
+            Notes and future implementations for graph neural networks, graph embeddings,
+            spectral graph methods, and scientific graph learning.
+          </p>
+          <p>
+            <span class="pill">GNNs</span>
+            <span class="pill">Spectral Methods</span>
+            <span class="pill">Scientific Learning</span>
+          </p>
+          <a href="https://github.com/phuongdongle?tab=repositories" target="_blank">
+            View GitHub →
+          </a>
+        </div>
       </div>
     </section>
 
     <section id="teaching">
-      <h2>Teaching</h2>
-      <p>
-        I have teaching experience in applied mathematics, differential equations,
-        numerical methods, vector calculus, and scientific computing at the University of Waterloo.
-      </p>
+      <h2 class="section-title">Teaching</h2>
+
+      <div class="card">
+        <p>
+          I have teaching experience in applied mathematics, differential equations,
+          numerical methods, vector calculus, and scientific computing at the University of Waterloo.
+        </p>
+
+        <p>
+          I am interested in teaching mathematical modeling, numerical analysis,
+          scientific computing, machine learning, and graph representation learning.
+        </p>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:pdle@uwaterloo.ca">pdle@uwaterloo.ca</a></p>
-      <p>GitHub: <a href="https://github.com/phuongdongle" target="_blank">github.com/phuongdongle</a></p>
+      <h2 class="section-title">Contact</h2>
+
+      <div class="card">
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:pdle@uwaterloo.ca">pdle@uwaterloo.ca</a>
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>
+          <a href="https://github.com/phuongdongle" target="_blank">github.com/phuongdongle</a>
+        </p>
+
+        <p>
+          <strong>Repositories:</strong>
+          <a href="https://github.com/phuongdongle?tab=repositories" target="_blank">
+            github.com/phuongdongle?tab=repositories
+          </a>
+        </p>
+
+        <p>
+          <strong>LinkedIn / Google Scholar / ORCID:</strong>
+          Add your links here when ready.
+        </p>
+      </div>
     </section>
 
   </main>
