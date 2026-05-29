@@ -49,7 +49,8 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--light);
       color: #1e293b;
-      line-height: 1.65;
+      line-height: 1.55;
+      font-size: 15px;
     }
 
     a {
@@ -59,6 +60,13 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    p {
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 12px;
     }
 
     .navbar {
@@ -73,7 +81,7 @@
     .nav-container {
       max-width: 1120px;
       margin: auto;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -85,15 +93,15 @@
     }
 
     .nav-links a {
-      margin-left: 18px;
+      margin-left: 16px;
       color: var(--dark);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .hero {
       background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
       color: white;
-      padding: 80px 24px;
+      padding: 62px 24px;
     }
 
     .hero-container {
@@ -101,43 +109,43 @@
       margin: auto;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 42px;
+      gap: 34px;
       align-items: center;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      margin: 0 0 14px;
-      line-height: 1.12;
+      font-size: 2.35rem;
+      margin: 0 0 12px;
+      line-height: 1.15;
     }
 
     .hero h2 {
-      font-size: 1.25rem;
+      font-size: 1.08rem;
       font-weight: 400;
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: #dbeafe;
     }
 
     .hero p {
-      font-size: 1.08rem;
+      font-size: 0.98rem;
       color: #e0f2fe;
       max-width: 760px;
     }
 
     .hero-buttons {
-      margin-top: 28px;
+      margin-top: 22px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
     .button {
-      min-height: 46px;
+      min-height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      padding: 10px 16px;
+      gap: 8px;
+      padding: 9px 14px;
       border-radius: 8px;
       background: white;
       color: var(--blue);
@@ -145,6 +153,7 @@
       border: 1px solid white;
       white-space: nowrap;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
+      font-size: 0.92rem;
     }
 
     .button.secondary {
@@ -164,116 +173,120 @@
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 18px;
-      padding: 24px;
+      padding: 20px;
       backdrop-filter: blur(10px);
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
     }
 
     .hero-card h3 {
       margin-top: 0;
+      margin-bottom: 12px;
       color: white;
-      font-size: 1.35rem;
+      font-size: 1.15rem;
     }
 
     .hero-card p {
       color: #e0f2fe;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
     }
 
     .tag {
       display: inline-block;
       background: rgba(255,255,255,0.18);
       color: white;
-      padding: 6px 10px;
+      padding: 5px 9px;
       border-radius: 999px;
-      font-size: 0.85rem;
-      margin: 4px;
+      font-size: 0.78rem;
+      margin: 3px;
     }
 
     main {
       max-width: 1120px;
       margin: auto;
-      padding: 42px 24px;
+      padding: 34px 24px;
     }
 
     section {
-      margin-bottom: 52px;
-      scroll-margin-top: 90px;
+      margin-bottom: 38px;
+      scroll-margin-top: 82px;
     }
 
     .section-title {
-      font-size: 2rem;
+      font-size: 1.78rem;
       color: var(--dark);
       margin-bottom: 6px;
       line-height: 1.25;
     }
 
-    .section-subtitle {
-      color: var(--gray);
-      margin-top: 0;
-      margin-bottom: 24px;
-      max-width: 840px;
-      font-size: 1.02rem;
-      line-height: 1.65;
+    .latest-title {
+      font-size: 1.95rem;
+      margin-bottom: 8px;
+    }
+
+    .subsection-title {
+      font-size: 1.38rem;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      color: var(--dark);
     }
 
     .project-subtitle {
-      font-size: 1.08rem;
+      font-size: 1rem;
       color: var(--blue);
       font-weight: 700;
-      margin-top: 8px;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 8px;
     }
 
     .small-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.88rem;
       color: var(--gray);
       max-width: 840px;
       margin-top: 0;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
+      line-height: 1.55;
     }
 
     .card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 26px;
+      padding: 20px;
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .card h3 {
       margin-top: 0;
+      margin-bottom: 10px;
       color: var(--dark);
-    }
-
-    .muted {
-      color: var(--gray);
+      font-size: 1.1rem;
     }
 
     .math-box {
       background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 18px;
+      padding: 12px 16px;
       overflow-x: auto;
-      margin: 18px 0;
+      margin: 12px 0;
     }
 
     .math-box mjx-container {
-      font-size: 112% !important;
+      font-size: 96% !important;
     }
 
     .workflow {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 22px;
+      gap: 14px;
+      margin-top: 18px;
       position: relative;
     }
 
@@ -281,7 +294,7 @@
       background: white;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 22px;
+      padding: 18px;
       text-align: center;
       position: relative;
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
@@ -291,10 +304,10 @@
       content: "→";
       position: absolute;
       top: 50%;
-      right: -17px;
+      right: -15px;
       transform: translateY(-50%);
       color: var(--blue);
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 800;
       z-index: 2;
     }
@@ -304,16 +317,17 @@
     }
 
     .workflow-icon {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       background: var(--blue);
+      font-size: 0.9rem;
     }
 
     .workflow-step:nth-child(2) .workflow-icon {
@@ -329,14 +343,15 @@
     }
 
     .workflow-step h3 {
-      font-size: 1.05rem;
+      font-size: 0.98rem;
       margin-bottom: 8px;
     }
 
     .workflow-step p {
       color: var(--gray);
-      font-size: 0.95rem;
+      font-size: 0.82rem;
       margin-bottom: 0;
+      line-height: 1.5;
     }
 
     .figure-card {
@@ -348,7 +363,7 @@
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 18px;
+      padding: 14px;
       overflow-x: auto;
     }
 
@@ -362,35 +377,38 @@
 
     .caption {
       color: var(--gray);
-      font-size: 0.95rem;
-      margin-top: 14px;
+      font-size: 0.84rem;
+      margin-top: 12px;
     }
 
     .result-list {
       padding-left: 20px;
       margin-bottom: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
 
     .result-list li {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .pill {
       display: inline-block;
       background: var(--blue-light);
       color: #1e40af;
-      padding: 5px 10px;
+      padding: 4px 9px;
       border-radius: 999px;
-      font-size: 0.85rem;
-      margin: 4px 4px 4px 0;
+      font-size: 0.78rem;
+      margin: 3px 3px 3px 0;
     }
 
     footer {
       background: var(--dark);
       color: #cbd5e1;
       text-align: center;
-      padding: 28px 20px;
-      margin-top: 40px;
+      padding: 24px 20px;
+      margin-top: 36px;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 900px) {
@@ -404,12 +422,12 @@
         content: "↓";
         top: auto;
         right: 50%;
-        bottom: -24px;
+        bottom: -22px;
         transform: translateX(50%);
       }
 
       .workflow-step {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
       }
 
       .workflow-step:last-child {
@@ -417,7 +435,7 @@
       }
 
       .hero h1 {
-        font-size: 2.25rem;
+        font-size: 2rem;
       }
 
       .nav-container {
@@ -443,7 +461,7 @@
       <div class="nav-name">Tan Phuong Dong Le</div>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="#project1">Project 1</a>
+        <a href="#project1">Latest Project</a>
         <a href="#workflow">Workflow</a>
         <a href="#animation">Animation</a>
         <a href="#details">Details</a>
@@ -458,9 +476,8 @@
         <h2>Project showcase on scientific machine learning for PDE approximation</h2>
 
         <p>
-          This page presents selected computational projects on machine learning and deep learning
-          methods for partial differential equations, variational formulations, and free-boundary
-          value problems.
+          Selected computational projects on machine learning and deep learning methods for partial differential equations,
+          variational formulations, and free-boundary value problems.
         </p>
 
         <div class="hero-buttons">
@@ -489,20 +506,21 @@
   <main>
 
     <section id="project1">
-      <h2 class="section-title">1. KAN Solver for Free-Boundary Value Problems and Time-Dependent Stefan Problems</h2>
+      <h2 class="section-title latest-title">1. Latest Project</h2>
 
-      <div class="project-subtitle">Project Overview</div>
+      <div class="project-subtitle">
+        KAN Solver for Free-Boundary Value Problems and Time-Dependent Stefan Problems
+      </div>
 
       <p class="small-subtitle">
-        This project studies a KAN-based physics-informed neural solver for a moving-boundary
-        parabolic PDE. The numerical experiment learns both the time-dependent solution field
-        and the moving free surface simultaneously.
+        Project overview: a KAN-based physics-informed neural solver for a moving-boundary parabolic PDE.
+        The experiment learns both the time-dependent solution field and the moving free surface.
       </p>
 
       <div class="card">
         <p>
           The main example is the two-dimensional one-phase Stefan problem. The goal is to approximate
-          the time-dependent solution \(u(x_1,x_2,t)\) and the moving free boundary \(s(x_2,t)\).
+          \(u(x_1,x_2,t)\) and the moving free boundary \(s(x_2,t)\).
         </p>
 
         <div class="math-box">
@@ -542,7 +560,7 @@
 
         <div class="math-box">
           \[
-          \mathcal{R}_{\mathrm{PDE}}(x_1,x_2,t)
+          \mathcal{R}_{\mathrm{PDE}}
           =
           \partial_t u_{\mathrm{KAN}}
           -
@@ -554,13 +572,14 @@
     </section>
 
     <section id="workflow">
-      <h2 class="section-title">2. Methodological Workflow</h2>
+      <h2 class="subsection-title">Methodological Workflow</h2>
 
-      <div class="project-subtitle">Problem Formulation → Model → Training → Approximation</div>
+      <div class="project-subtitle">
+        Problem Formulation → Model → Training → Approximation
+      </div>
 
       <p class="small-subtitle">
-        The project pipeline is summarized as a four-stage scientific machine-learning workflow.
-        Each stage corresponds to a mathematical or computational component of the Stefan solver.
+        A compact four-stage workflow summarizes the mathematical and computational structure of the Stefan solver.
       </p>
 
       <div class="workflow">
@@ -569,7 +588,7 @@
           <h3>Problem Formulation</h3>
           <p>
             Define \(\Omega(t)\), the heat equation, boundary data, interface condition,
-            and Stefan free-boundary condition.
+            and Stefan condition.
           </p>
         </div>
 
@@ -586,8 +605,8 @@
           <div class="workflow-icon">3</div>
           <h3>Training</h3>
           <p>
-            Minimize a composite loss combining PDE residuals, initial data,
-            boundary data, interface loss, and Stefan loss.
+            Minimize PDE residual, initial data, boundary data, interface loss,
+            and Stefan loss.
           </p>
         </div>
 
@@ -595,20 +614,22 @@
           <div class="workflow-icon">4</div>
           <h3>Approximation</h3>
           <p>
-            Evaluate \(u_{\mathrm{KAN}}\), compute error metrics, and compare
-            \(\hat{s}\) against the exact free surface.
+            Evaluate \(u_{\mathrm{KAN}}\), compute errors, and compare \(\hat{s}\)
+            with the exact interface.
           </p>
         </div>
       </div>
     </section>
 
     <section id="animation">
-      <h2 class="section-title">3. Time-Dependent KAN Prediction and Error</h2>
+      <h2 class="subsection-title">Time-Dependent KAN Prediction and Error</h2>
 
-      <div class="project-subtitle">Exact Solution, Predicted Solution, and Pointwise Error</div>
+      <div class="project-subtitle">
+        Exact Solution, Predicted Solution, and Pointwise Error
+      </div>
 
       <p class="small-subtitle">
-        The animation below shows the learned KAN solution evolving from initial time to final time,
+        The animation shows the learned KAN solution evolving from initial time to final time,
         together with the pointwise absolute error.
       </p>
 
@@ -621,25 +642,27 @@
 
         <p class="caption">
           Left: exact solution \(u_{\mathrm{exact}}(x_1,x_2,t)\).
-          Middle: KAN-predicted solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).
+          Middle: predicted solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).
           Right: pointwise error \(|u_{\mathrm{KAN}}-u_{\mathrm{exact}}|\).
         </p>
       </div>
     </section>
 
     <section id="details">
-      <h2 class="section-title">4. Training and Approximation Details</h2>
+      <h2 class="subsection-title">Training and Approximation Details</h2>
 
-      <div class="project-subtitle">Physics-Informed Losses and Numerical Outputs</div>
+      <div class="project-subtitle">
+        Physics-Informed Losses and Numerical Outputs
+      </div>
 
       <p class="small-subtitle">
-        The solver is trained by minimizing residual losses associated with the governing PDE,
-        boundary and initial conditions, and moving-boundary constraints.
+        The solver is trained by minimizing residual losses associated with the PDE, boundary and initial data,
+        and moving-boundary constraints.
       </p>
 
       <div class="card">
         <p>
-          A typical composite physics-informed loss has the form
+          A typical composite physics-informed objective has the form
         </p>
 
         <div class="math-box">
@@ -677,31 +700,31 @@
           <h3>Numerical Outputs</h3>
           <ul class="result-list">
             <li>Approximate solution \(u_{\mathrm{KAN}}(x_1,x_2,t)\).</li>
-            <li>Pointwise absolute error \( |u_{\mathrm{KAN}}-u_{\mathrm{exact}}| \).</li>
+            <li>Pointwise error \( |u_{\mathrm{KAN}}-u_{\mathrm{exact}}| \).</li>
             <li>Training logs for total and component losses.</li>
-            <li>Relative errors \( \|u_{\mathrm{exact}}-u_{\mathrm{KAN}}\|_2/\|u_{\mathrm{exact}}\|_2 \) and \(L^\infty\) error.</li>
-            <li>Predicted free surface \(\hat{s}(x_2,t)\) compared with the exact interface \(s(x_2,t)\).</li>
+            <li>Relative error \( \|u_{\mathrm{exact}}-u_{\mathrm{KAN}}\|_2/\|u_{\mathrm{exact}}\|_2 \).</li>
+            <li>Predicted free surface \(\hat{s}(x_2,t)\) compared with \(s(x_2,t)\).</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section id="summary">
-      <h2 class="section-title">5. Summary</h2>
+      <h2 class="subsection-title">Summary</h2>
 
-      <div class="project-subtitle">Scientific Machine Learning for PDEs and Free Boundaries</div>
+      <div class="project-subtitle">
+        Scientific Machine Learning for PDEs and Free Boundaries
+      </div>
 
       <p class="small-subtitle">
-        This section summarizes the main computational idea and the role of KAN-based approximation
-        in solving moving-boundary PDEs.
+        A compact summary of the latest project and its role in scientific machine learning for moving-boundary PDEs.
       </p>
 
       <div class="card">
         <p>
-          This showcase demonstrates how KAN-based and broader machine-learning methods can be used
-          to approximate PDEs and free-boundary value problems. The formulation combines a neural
-          approximation of the solution field with physics-informed loss terms that encode the PDE,
-          boundary data, interface constraint, and Stefan condition.
+          This showcase demonstrates how KAN-based and broader machine-learning methods can approximate PDEs
+          and free-boundary value problems. The formulation combines neural approximation with physics-informed
+          loss terms encoding the PDE, boundary data, interface constraint, and Stefan condition.
         </p>
 
         <p>
