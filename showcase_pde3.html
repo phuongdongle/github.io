@@ -6,7 +6,7 @@
 
   <title>Machine Learning and Deep Learning Methods for PDEs | Tan Phuong Dong Le</title>
 
-  <meta name="description" content="Project showcase by Tan Phuong Dong Le on machine learning and deep learning methods for linear elliptic PDEs, free-boundary value problems, and time-dependent Stefan problems.">
+  <meta name="description" content="Project showcase by Tan Phuong Dong Le on machine learning and deep learning methods for linear elliptic PDEs, free-boundary value problems, p-Laplacian obstacle problems, and time-dependent Stefan problems.">
 
   <!-- MathJax for LaTeX rendering -->
   <script>
@@ -262,6 +262,13 @@
       gap: 18px;
     }
 
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
@@ -359,7 +366,8 @@
       overflow: hidden;
     }
 
-    .gif-box {
+    .gif-box,
+    .image-box {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -367,7 +375,8 @@
       overflow-x: auto;
     }
 
-    .gif-box img {
+    .gif-box img,
+    .image-box img {
       max-width: 100%;
       height: auto;
       border-radius: 12px;
@@ -375,14 +384,7 @@
       margin: auto;
     }
 
-    .free-surface-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .free-surface-panel {
+    .image-panel {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -390,18 +392,29 @@
       text-align: center;
     }
 
-    .free-surface-panel img {
+    .image-panel img {
       width: 100%;
       height: auto;
       border-radius: 10px;
       display: block;
     }
 
-    .free-surface-panel-title {
+    .image-panel-title {
       font-size: 0.86rem;
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 8px;
+    }
+
+    .wide-figure {
+      margin-top: 16px;
+    }
+
+    .wide-figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
     }
 
     .caption {
@@ -443,8 +456,8 @@
     @media (max-width: 900px) {
       .hero-container,
       .grid-2,
-      .workflow,
-      .free-surface-grid {
+      .grid-3,
+      .workflow {
         grid-template-columns: 1fr;
       }
 
@@ -493,8 +506,9 @@
         <a href="index.html">Home</a>
         <a href="#project1">Project</a>
         <a href="#workflow">Workflow</a>
-        <a href="#animation">Animation</a>
-        <a href="#details">Details</a>
+        <a href="#animation">Stefan Results</a>
+        <a href="#plaplacian">p-Laplacian</a>
+        <a href="#training">Training</a>
       </div>
     </div>
   </nav>
@@ -507,7 +521,7 @@
 
         <p>
           Selected computational projects on machine learning and deep learning methods for partial differential equations,
-          variational formulations, and free-boundary value problems.
+          variational formulations, obstacle problems, and free-boundary value problems.
         </p>
 
         <div class="hero-buttons">
@@ -526,6 +540,7 @@
           <span class="tag">Scientific ML</span>
           <span class="tag">Deep Learning</span>
           <span class="tag">Linear Elliptic PDEs</span>
+          <span class="tag">Obstacle Problems</span>
           <span class="tag">Free Boundary</span>
           <span class="tag">Stefan Problem</span>
         </div>
@@ -692,10 +707,10 @@
       </p>
 
       <div class="card figure-card">
-        <div class="free-surface-grid">
+        <div class="grid-3">
 
-          <div class="free-surface-panel">
-            <div class="free-surface-panel-title">
+          <div class="image-panel">
+            <div class="image-panel-title">
               Exact Free Surface \(s(x_2,t)\)
             </div>
             <img
@@ -703,8 +718,8 @@
               alt="Exact moving free-boundary surface">
           </div>
 
-          <div class="free-surface-panel">
-            <div class="free-surface-panel-title">
+          <div class="image-panel">
+            <div class="image-panel-title">
               Predicted Free Surface \(\hat{s}(x_2,t)\)
             </div>
             <img
@@ -712,8 +727,8 @@
               alt="Predicted moving free-boundary surface">
           </div>
 
-          <div class="free-surface-panel">
-            <div class="free-surface-panel-title">
+          <div class="image-panel">
+            <div class="image-panel-title">
               Log Absolute Error
             </div>
             <img
@@ -731,16 +746,116 @@
       </div>
     </section>
 
-    <section id="details">
+    <section id="plaplacian">
+      <h2 class="subsection-title">p-Laplacian Obstacle Problem</h2>
+
+      <div class="project-subtitle">
+        Obstacle Function, KAN Approximation, Pointwise Error, and Convergence
+      </div>
+
+      <p class="small-subtitle">
+        This part showcases a KAN-based approximation for a two-dimensional p-Laplacian obstacle problem.
+        The plots compare the obstacle, exact solution, learned approximation, pointwise absolute error,
+        and convergence curves.
+      </p>
+
+      <div class="card">
+        <p>
+          A representative p-Laplacian obstacle problem can be written in variational inequality form:
+        </p>
+
+        <div class="math-box">
+          \[
+          u \geq \psi, \qquad
+          -\nabla \cdot \left(|\nabla u|^{p-2}\nabla u\right) \geq f,
+          \qquad
+          \left(u-\psi\right)
+          \left[
+          -\nabla \cdot \left(|\nabla u|^{p-2}\nabla u\right)-f
+          \right] = 0.
+          \]
+        </div>
+
+        <p>
+          The KAN approximation is trained to satisfy the PDE residual, the obstacle constraint,
+          and the complementarity relation.
+        </p>
+      </div>
+
+      <div class="card figure-card wide-figure">
+        <div class="image-panel-title">Obstacle Function \(\psi(x_1,x_2)\)</div>
+        <img
+          src="assets/pLaplacianObstacle/obstacle_3d.png"
+          alt="Obstacle function for the p-Laplacian obstacle problem">
+      </div>
+
+      <div class="card figure-card wide-figure">
+        <div class="grid-3">
+
+          <div class="image-panel">
+            <div class="image-panel-title">Exact Solution \(u_{\mathrm{exact}}\)</div>
+            <img
+              src="assets/pLaplacianObstacle/u_exact_3d.png"
+              alt="Exact solution for p-Laplacian obstacle problem">
+          </div>
+
+          <div class="image-panel">
+            <div class="image-panel-title">KAN Approximation \(u_{\mathrm{KAN}}\)</div>
+            <img
+              src="assets/pLaplacianObstacle/u_pred_3d.png"
+              alt="KAN approximation for p-Laplacian obstacle problem">
+          </div>
+
+          <div class="image-panel">
+            <div class="image-panel-title">Absolute Error</div>
+            <img
+              src="assets/pLaplacianObstacle/absolute_error_2d.png"
+              alt="Absolute error for p-Laplacian obstacle problem">
+          </div>
+
+        </div>
+
+        <p class="caption">
+          Left: exact solution. Middle: KAN approximation. Right: pointwise absolute error.
+        </p>
+      </div>
+
+      <div class="card figure-card wide-figure">
+        <div class="grid-2">
+
+          <div class="image-panel">
+            <div class="image-panel-title">Loss Components</div>
+            <img
+              src="assets/pLaplacianObstacle/loss_components_logscale.png"
+              alt="Loss components for p-Laplacian obstacle problem">
+          </div>
+
+          <div class="image-panel">
+            <div class="image-panel-title">Relative Errors</div>
+            <img
+              src="assets/pLaplacianObstacle/relative_errors_logscale.png"
+              alt="Relative errors for p-Laplacian obstacle problem">
+          </div>
+
+        </div>
+
+        <p class="caption">
+          Left: total, obstacle, PDE, and complementarity losses.
+          Right: relative \(L^2\) and \(L^\infty\) errors.
+        </p>
+      </div>
+    </section>
+
+    <section id="training">
       <h2 class="subsection-title">Training and Approximation Details</h2>
 
       <div class="project-subtitle">
-        Physics-Informed Losses and Numerical Outputs
+        Physics-Informed Losses and Stefan Training Logs
       </div>
 
       <p class="small-subtitle">
         The solver is trained by minimizing residual losses associated with the PDE, boundary and initial data,
-        and moving-boundary constraints.
+        and moving-boundary constraints. The final two figures summarize the Stefan-problem training logs.
       </p>
 
       <div class="card">
@@ -790,24 +905,57 @@
           </ul>
         </div>
       </div>
+
+      <br>
+
+      <div class="card figure-card">
+        <div class="project-subtitle">Stefan Training Logs</div>
+
+        <p class="small-subtitle">
+          The loss curves show convergence of the total and component physics-informed losses.
+          The relative-error curves track \(L^2\) and \(L^\infty\) accuracy during training.
+        </p>
+
+        <div class="grid-2">
+          <div class="image-panel">
+            <div class="image-panel-title">Training Losses</div>
+            <img
+              src="assets/training_losses.png"
+              alt="Training losses for the time-dependent Stefan problem">
+          </div>
+
+          <div class="image-panel">
+            <div class="image-panel-title">Relative Errors</div>
+            <img
+              src="assets/relative_errors.png"
+              alt="Relative errors for the time-dependent Stefan problem">
+          </div>
+        </div>
+
+        <p class="caption">
+          Left: total loss and physics-informed loss components.
+          Right: relative \(L^2\) and \(L^\infty\) errors.
+        </p>
+      </div>
     </section>
 
     <section id="summary">
       <h2 class="subsection-title">Summary</h2>
 
       <div class="project-subtitle">
-        Scientific Machine Learning for PDEs and Free Boundaries
+        Scientific Machine Learning for PDEs, Obstacle Problems, and Free Boundaries
       </div>
 
       <p class="small-subtitle">
-        A compact summary of the latest project and its role in scientific machine learning for moving-boundary PDEs.
+        A compact summary of the showcased projects and their role in scientific machine learning for constrained and moving-boundary PDEs.
       </p>
 
       <div class="card">
         <p>
-          This showcase demonstrates how KAN-based and broader machine-learning methods can approximate PDEs
-          and free-boundary value problems. The formulation combines neural approximation with physics-informed
-          loss terms encoding the PDE, boundary data, interface constraint, and Stefan condition.
+          This showcase demonstrates how KAN-based and broader machine-learning methods can approximate PDEs,
+          obstacle problems, and free-boundary value problems. The formulation combines neural approximation with
+          physics-informed loss terms encoding PDE residuals, boundary data, obstacle constraints, interface constraints,
+          and Stefan conditions.
         </p>
 
         <p>
@@ -815,6 +963,7 @@
           <span class="pill">Scientific Machine Learning</span>
           <span class="pill">Deep Learning</span>
           <span class="pill">Linear Elliptic PDEs</span>
+          <span class="pill">Obstacle Problems</span>
           <span class="pill">Free-Boundary Problems</span>
           <span class="pill">Stefan Problem</span>
           <span class="pill">Physics-Informed Learning</span>
